@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +10,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -39,35 +42,81 @@
 
   <style>
     /* ✅ premium smooth scrolling */
-    html { scroll-behavior: smooth; }
-    body { background-color: #0f0f0f; color: #ffffff; overflow-x: hidden; overscroll-behavior: none; }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #0f0f0f;
+      color: #ffffff;
+      overflow-x: hidden;
+      overscroll-behavior: none;
+    }
 
     /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #0f0f0f; }
-    ::-webkit-scrollbar-thumb { background: #333; }
-    ::-webkit-scrollbar-thumb:hover { background: #ff6b35; }
-
-    .nav-link { position: relative; }
-    .nav-link::after {
-      content: ''; position: absolute; width: 0; height: 1px; bottom: -2px; left: 0;
-      background-color: #ff6b35; transition: width 0.28s ease;
+    ::-webkit-scrollbar {
+      width: 8px;
     }
-    .nav-link:hover::after { width: 100%; }
 
-    details > summary { list-style: none; }
-    details > summary::-webkit-details-marker { display: none; }
+    ::-webkit-scrollbar-track {
+      background: #0f0f0f;
+    }
 
-    .marquee-wrapper { display: flex; width: max-content; }
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ff6b35;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: #ff6b35;
+      transition: width 0.28s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    details>summary {
+      list-style: none;
+    }
+
+    details>summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .marquee-wrapper {
+      display: flex;
+      width: max-content;
+    }
 
     /* Premium reveal helpers */
-    .reveal-wrap { overflow: hidden; }
-    .reveal-img { transform-origin: center; will-change: transform; }
+    .reveal-wrap {
+      overflow: hidden;
+    }
+
+    .reveal-img {
+      transform-origin: center;
+      will-change: transform;
+    }
+
     .glass {
-      background: rgba(15,15,15,0.55);
+      background: rgba(15, 15, 15, 0.55);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     /* Gallery tiles */
@@ -77,41 +126,59 @@
       position: relative;
       transform: translateZ(0);
       will-change: transform;
-      box-shadow: 0 18px 60px rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       cursor: pointer;
-      flex-shrink: 0; 
+      flex-shrink: 0;
     }
-    .gallery-tile img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.03); }
-    
-    .gallery-row { display:flex; gap: 18px; width: max-content; padding: 6px 0; will-change: transform; }
-    
+
+    .gallery-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.03);
+    }
+
+    .gallery-row {
+      display: flex;
+      gap: 18px;
+      width: max-content;
+      padding: 6px 0;
+      will-change: transform;
+    }
+
     .soft-grid {
-      background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
       background-size: 28px 28px;
       background-position: 0 0;
     }
 
     /* Text-only premium cards */
     .ink-card {
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      box-shadow: 0 18px 60px rgba(0,0,0,0.25);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
       position: relative;
       overflow: hidden;
     }
+
     .ink-card::before {
-      content:"";
-      position:absolute; inset:-2px;
+      content: "";
+      position: absolute;
+      inset: -2px;
       background:
-        radial-gradient(600px 240px at 20% 10%, rgba(255,107,53,0.16), transparent 60%),
-        radial-gradient(520px 240px at 90% 40%, rgba(255,255,255,0.08), transparent 60%);
-      pointer-events:none;
+        radial-gradient(600px 240px at 20% 10%, rgba(255, 107, 53, 0.16), transparent 60%),
+        radial-gradient(520px 240px at 90% 40%, rgba(255, 255, 255, 0.08), transparent 60%);
+      pointer-events: none;
     }
 
     /* ✅ SLIDER GALLERY SECTION STYLES */
-    .hscroll-wrap { position: relative; overflow: hidden; }
+    .hscroll-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
     .hscroll-track {
       display: flex;
       gap: 18px;
@@ -119,204 +186,310 @@
       padding: 12px 0;
       will-change: transform;
     }
+
     .hscroll-card {
-      width: min(78vw, 420px); 
+      width: min(78vw, 420px);
       height: min(58vh, 520px);
       border-radius: 22px;
       overflow: hidden;
       position: relative;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 18px 60px rgba(0,0,0,0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
       transform: translateZ(0);
       cursor: pointer;
       flex-shrink: 0;
     }
+
     .hscroll-card img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       transform: scale(1.03);
       transition: transform 0.5s ease;
     }
-    .hscroll-card:hover img { transform: scale(1.1); }
-    .hscroll-card::after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(to top, rgba(0,0,0,0.45), transparent 60%);
-      pointer-events:none;
+
+    .hscroll-card:hover img {
+      transform: scale(1.1);
     }
-    .hscroll-meta { position:absolute; left:18px; bottom:16px; pointer-events: none; }
+
+    .hscroll-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.45), transparent 60%);
+      pointer-events: none;
+    }
+
+    .hscroll-meta {
+      position: absolute;
+      left: 18px;
+      bottom: 16px;
+      pointer-events: none;
+    }
 
     /* Slider Arrows */
     .slider-btn {
-      width: 56px; height: 56px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: rgba(255,255,255,0.05);
-      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transition: all 0.3s ease;
       cursor: pointer;
     }
+
     .slider-btn:hover {
       background: #ff6b35;
       border-color: #ff6b35;
       transform: scale(1.1);
     }
+
     .slider-btn:disabled {
       opacity: 0.3;
       cursor: not-allowed;
       pointer-events: none;
     }
-    .slider-btn svg { width: 24px; height: 24px; stroke: white; }
-    .slider-btn:hover svg { stroke: black; }
+
+    .slider-btn svg {
+      width: 24px;
+      height: 24px;
+      stroke: white;
+    }
+
+    .slider-btn:hover svg {
+      stroke: black;
+    }
 
     /* ✅ COMPARISON SLIDER STYLES */
     .comparison-container {
-        position: relative;
-        width: 100%;
-        height: 600px;
-        overflow: hidden;
-        border-radius: 24px;
-        border: 1px solid rgba(255,255,255,0.1);
-        cursor: col-resize;
+      position: relative;
+      width: 100%;
+      height: 600px;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: col-resize;
     }
+
     .comp-img-wrapper {
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background-size: cover;
-        background-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
     }
+
     /* The "Old" Image (Top Layer) */
     .comp-overlay {
-        position: absolute;
-        top: 0; left: 0;
-        width: 50%; /* Initial split */
-        height: 100%;
-        overflow: hidden;
-        z-index: 10;
-        border-right: 2px solid #ff6b35;
-        background-color: #0f0f0f;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      /* Initial split */
+      height: 100%;
+      overflow: hidden;
+      z-index: 10;
+      border-right: 2px solid #ff6b35;
+      background-color: #0f0f0f;
     }
+
     .comp-overlay img {
-        position: absolute;
-        top: 0; left: 0;
-        height: 100%;
-        width: auto; /* Allow image to be wider than container */
-        max-width: none;
-        object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: auto;
+      /* Allow image to be wider than container */
+      max-width: none;
+      object-fit: cover;
     }
+
     /* The Handle */
     .comp-handle {
-        position: absolute;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
-        width: 48px; height: 48px;
-        background: white;
-        border-radius: 50%;
-        z-index: 20;
-        display: flex; align-items: center; justify-content: center;
-        box-shadow: 0 0 20px rgba(0,0,0,0.5);
-        pointer-events: none; /* Let clicks pass through to container */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      background: white;
+      border-radius: 50%;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      pointer-events: none;
+      /* Let clicks pass through to container */
     }
 
     /* Lightbox (modal) */
-    .lb-hidden { display: none; }
+    .lb-hidden {
+      display: none;
+    }
+
     .lb-overlay {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.72);
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       z-index: 9999;
     }
+
     .lb-shell {
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       display: grid;
       place-items: center;
       padding: 18px;
     }
+
     .lb-card {
       width: min(1100px, 92vw);
       height: min(680px, 82vh);
       border-radius: 22px;
       overflow: hidden;
-      background: rgba(10,10,10,0.75);
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 22px 90px rgba(0,0,0,0.55);
+      background: rgba(10, 10, 10, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: 0 22px 90px rgba(0, 0, 0, 0.55);
       position: relative;
     }
+
     .lb-img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
       background: #0b0b0b;
       user-select: none;
       -webkit-user-drag: none;
     }
+
     .lb-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 46px; height: 46px;
+      width: 46px;
+      height: 46px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(0, 0, 0, 0.35);
       display: grid;
       place-items: center;
       transition: transform 180ms ease, background 180ms ease, border 180ms ease;
     }
-    .lb-btn:hover { background: rgba(255,107,53,0.18); border-color: rgba(255,107,53,0.55); transform: translateY(-50%) scale(1.05); }
-    .lb-btn:active { transform: translateY(-50%) scale(0.98); }
-    .lb-prev { left: 14px; }
-    .lb-next { right: 14px; }
+
+    .lb-btn:hover {
+      background: rgba(255, 107, 53, 0.18);
+      border-color: rgba(255, 107, 53, 0.55);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .lb-btn:active {
+      transform: translateY(-50%) scale(0.98);
+    }
+
+    .lb-prev {
+      left: 14px;
+    }
+
+    .lb-next {
+      right: 14px;
+    }
 
     .lb-topbar {
-      position: absolute; left: 0; right: 0; top: 0;
-      display: flex; justify-content: space-between; align-items: center;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 12px 14px;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0));
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
       pointer-events: none;
     }
-    .lb-topbar > * { pointer-events: auto; }
+
+    .lb-topbar>* {
+      pointer-events: auto;
+    }
+
     .lb-chip {
       font-size: 11px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.80);
-      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255, 255, 255, 0.80);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       padding: 8px 10px;
       border-radius: 999px;
-      background: rgba(0,0,0,0.35);
+      background: rgba(0, 0, 0, 0.35);
     }
+
     .lb-close {
-      width: 40px; height: 40px;
+      width: 40px;
+      height: 40px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,0.35);
-      display:grid; place-items:center;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(0, 0, 0, 0.35);
+      display: grid;
+      place-items: center;
       transition: background 180ms ease, border 180ms ease, transform 180ms ease;
     }
-    .lb-close:hover { background: rgba(255,107,53,0.18); border-color: rgba(255,107,53,0.55); transform: scale(1.05); }
-    .lb-close:active { transform: scale(0.98); }
+
+    .lb-close:hover {
+      background: rgba(255, 107, 53, 0.18);
+      border-color: rgba(255, 107, 53, 0.55);
+      transform: scale(1.05);
+    }
+
+    .lb-close:active {
+      transform: scale(0.98);
+    }
 
     /* Nav look like your screenshot */
-    .nav-barline { border-bottom: 1px solid rgba(255,255,255,0.14); }
+    .nav-barline {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
 
-    /* Footer Specifics from Image */
+    /* Footer Links */
     .footer-link {
-        color: #999;
-        font-size: 14px;
-        margin-bottom: 12px;
-        display: block;
-        transition: color 0.3s;
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 12px;
+      display: block;
+      transition: color 0.3s ease;
     }
-    .footer-link:hover { color: #ff6b35; }
-    .social-icon {
-        color: #fff;
-        font-size: 18px;
-        margin-right: 15px;
-        transition: color 0.3s;
-    }
-    .social-icon:hover { color: #ff6b35; }
 
+    .footer-link:hover {
+      color: #ff6b35;
+    }
+
+    /* Social Icons */
+    .social-icon {
+      color: #ffffff;
+      font-size: 18px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icon:hover {
+      color: #ff6b35;
+      transform: translateY(-2px);
+    }
+
+    .footer-logo {
+      height: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-logo {
+        height: 40px;
+      }
+    }
   </style>
 </head>
 
@@ -341,10 +514,11 @@
       </div>
 
       <div class="md:hidden">
-        <button id="mBtn" class="w-12 h-12 rounded-full border border-white/20 flex flex-col justify-center items-center gap-1.5 hover:border-brand-orange transition-colors group">
-            <span class="w-5 h-[2px] bg-white group-hover:bg-brand-orange transition-colors duration-300"></span>
-            <span class="w-5 h-[2px] bg-white group-hover:bg-brand-orange transition-colors duration-300"></span>
-            <span class="w-5 h-[2px] bg-white group-hover:bg-brand-orange transition-colors duration-300"></span>
+        <button id="mBtn"
+          class="w-12 h-12 rounded-full border border-white/20 flex flex-col justify-center items-center gap-1.5 hover:border-brand-orange transition-colors group">
+          <span class="w-5 h-[2px] bg-white group-hover:bg-brand-orange transition-colors duration-300"></span>
+          <span class="w-5 h-[2px] bg-white group-hover:bg-brand-orange transition-colors duration-300"></span>
+          <span class="w-5 h-[2px] bg-white group-hover:bg-brand-orange transition-colors duration-300"></span>
         </button>
       </div>
     </div>
@@ -365,7 +539,9 @@
 
   <section id="home" class="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
     <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover opacity-60">
-      <source src="https://media.istockphoto.com/id/1319150896/video/4-style-kitchen-design-luxurious-kitchen-with-island-table-white-background.mp4?s=mp4-640x640-is&k=20&c=QHaGE_N2DJjWeOdSsFZBvwsuZeud0wIxTllwBYlDMpc="" type="video/mp4">
+      <source
+        src="https://media.istockphoto.com/id/1319150896/video/4-style-kitchen-design-luxurious-kitchen-with-island-table-white-background.mp4?s=mp4-640x640-is&k=20&c=QHaGE_N2DJjWeOdSsFZBvwsuZeud0wIxTllwBYlDMpc="" type="
+        video/mp4">
     </video>
   </section>
 
@@ -375,12 +551,10 @@
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
       <div class="relative about-img-trigger reveal-wrap">
         <div class="absolute -top-4 -left-4 w-full h-full border border-brand-orange/30 z-0"></div>
-        <img
-          data-lightbox
+        <img data-lightbox
           src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1400&auto=format&fit=crop"
           class="reveal-img relative z-10 w-full h-[560px] object-cover grayscale hover:grayscale-0 transition-all duration-700"
-          alt="STLOX Interiors"
-        />
+          alt="STLOX Interiors" />
       </div>
 
       <div class="reveal-text">
@@ -397,22 +571,26 @@
           <div class="ink-card p-5">
             <div class="relative">
               <p class="text-xs uppercase tracking-widest text-brand-orange mb-2">Timeless Modular</p>
-              <p class="text-brand-cool text-sm leading-relaxed">Designed to outlast trends—clean lines, high utility, and enduring finishes.</p>
+              <p class="text-brand-cool text-sm leading-relaxed">Designed to outlast trends—clean lines, high utility,
+                and enduring finishes.</p>
             </div>
           </div>
           <div class="ink-card p-5">
             <div class="relative">
               <p class="text-xs uppercase tracking-widest text-brand-orange mb-2">Premium Steel Build</p>
-              <p class="text-brand-cool text-sm leading-relaxed">Precision-crafted modular units built with premium-grade steel for long life.</p>
+              <p class="text-brand-cool text-sm leading-relaxed">Precision-crafted modular units built with
+                premium-grade steel for long life.</p>
             </div>
           </div>
         </div>
 
         <div class="flex gap-3">
-          <a href="#contact" class="bg-brand-orange text-white px-7 py-3 uppercase tracking-widest text-xs font-bold hover:bg-white hover:text-brand-dark transition-all">
+          <a href="#contact"
+            class="bg-brand-orange text-white px-7 py-3 uppercase tracking-widest text-xs font-bold hover:bg-white hover:text-brand-dark transition-all">
             Get a Quote
           </a>
-          <a href="#projects" class="border border-white/25 text-white px-7 py-3 uppercase tracking-widest text-xs font-bold hover:border-brand-orange hover:text-brand-orange transition-all">
+          <a href="#projects"
+            class="border border-white/25 text-white px-7 py-3 uppercase tracking-widest text-xs font-bold hover:border-brand-orange hover:text-brand-orange transition-all">
             View Work
           </a>
         </div>
@@ -422,94 +600,113 @@
 
   <section id="products" class="py-24 bg-brand-panel">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="mb-12">
-            <h2 class="text-brand-orange tracking-widest uppercase text-sm mb-2">Our Products</h2>
-            <h3 class="text-4xl font-serif text-white">Premium Steel Solutions</h3>
+      <div class="mb-12">
+        <h2 class="text-brand-orange tracking-widest uppercase text-sm mb-2">Our Products</h2>
+        <h3 class="text-4xl font-serif text-white">Premium Steel Solutions</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1400"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            alt="Kitchen">
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
+          </div>
+
+          <div
+            class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+            <h4 class="text-xl font-bold text-white mb-2">Stainless Steel 304</h4>
+            <p
+              class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
+              Rust-proof, hygienic, and designed for longevity. The ultimate modular solution for modern homes.
+            </p>
+          </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1400" 
-                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Kitchen">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                
-                <div class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                    <h4 class="text-xl font-bold text-white mb-2">Stainless Steel 304</h4>
-                    <p class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
-                        Rust-proof, hygienic, and designed for longevity. The ultimate modular solution for modern homes.
-                    </p>
-                </div>
-            </div>
+        <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?q=80&w=1400"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            alt="Alloy Kitchen">
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
+          </div>
 
-            <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?q=80&w=1400" 
-                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Alloy Kitchen">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                
-                <div class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                    <h4 class="text-xl font-bold text-white mb-2">Alloy Coated Steel</h4>
-                    <p class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
-                        Advanced coating technology offering superior durability and a sleek matte finish.
-                    </p>
-                </div>
-            </div>
-
-            <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?q=80&w=1400" 
-                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Wardrobe">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                
-                <div class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                    <h4 class="text-xl font-bold text-white mb-2">Steel Wardrobes</h4>
-                    <p class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
-                        Termite-proof storage with silent sliding mechanisms and customizable internal layouts.
-                    </p>
-                </div>
-            </div>
-
-            <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?q=80&w=1400" 
-                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Vanity">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                
-                <div class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                    <h4 class="text-xl font-bold text-white mb-2">Steel Vanities</h4>
-                    <p class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
-                        Water-resistant bathroom units that combine elegance with industrial strength.
-                    </p>
-                </div>
-            </div>
+          <div
+            class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+            <h4 class="text-xl font-bold text-white mb-2">Alloy Coated Steel</h4>
+            <p
+              class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
+              Advanced coating technology offering superior durability and a sleek matte finish.
+            </p>
+          </div>
         </div>
+
+        <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?q=80&w=1400"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            alt="Wardrobe">
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
+          </div>
+
+          <div
+            class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+            <h4 class="text-xl font-bold text-white mb-2">Steel Wardrobes</h4>
+            <p
+              class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
+              Termite-proof storage with silent sliding mechanisms and customizable internal layouts.
+            </p>
+          </div>
+        </div>
+
+        <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?q=80&w=1400"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            alt="Vanity">
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
+          </div>
+
+          <div
+            class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+            <h4 class="text-xl font-bold text-white mb-2">Steel Vanities</h4>
+            <p
+              class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
+              Water-resistant bathroom units that combine elegance with industrial strength.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="py-24 bg-brand-dark border-t border-white/10">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="mb-12 text-center">
-            <h2 class="text-brand-orange tracking-widest uppercase text-sm mb-2">Renovation Magic</h2>
-            <h3 class="text-4xl font-serif text-white">Why Choose Steel Over Wood?</h3>
-            <p class="text-brand-cool mt-3">Drag the slider to see the difference.</p>
+      <div class="mb-12 text-center">
+        <h2 class="text-brand-orange tracking-widest uppercase text-sm mb-2">Renovation Magic</h2>
+        <h3 class="text-4xl font-serif text-white">Why Choose Steel Over Wood?</h3>
+        <p class="text-brand-cool mt-3">Drag the slider to see the difference.</p>
+      </div>
+
+      <div class="comparison-container" id="compSlider">
+        <div class="comp-img-wrapper" style="background-image: url('images/illustration-living-room-interior.jpg');">
+          <div
+            class="absolute bottom-8 right-8 bg-black/70 px-4 py-2 rounded-full text-white text-sm font-bold border border-white/20">
+            STLOX Transformation
+          </div>
         </div>
 
-        <div class="comparison-container" id="compSlider">
-            <div class="comp-img-wrapper" style="background-image: url('images/illustration-living-room-interior.jpg');">
-                <div class="absolute bottom-8 right-8 bg-black/70 px-4 py-2 rounded-full text-white text-sm font-bold border border-white/20">
-                    STLOX Transformation
-                </div>
-            </div>
-
-            <div class="comp-overlay" id="compOverlay">
-                <img src="https://img.freepik.com/fotos-premium/interior-casa_1048944-19759696.jpg" 
-                     id="compImageBefore"
-                     style="min-width: 100vw; width: 100vw;" 
-                     alt="Damaged Kitchen">
-                  </div>
-
-            <div class="comp-handle" id="compHandle">
-                <i class="fas fa-chevron-left text-brand-dark mr-1"></i>
-                <i class="fas fa-chevron-right text-brand-dark ml-1"></i>
-            </div>
+        <div class="comp-overlay" id="compOverlay">
+          <img src="https://img.freepik.com/fotos-premium/interior-casa_1048944-19759696.jpg" id="compImageBefore"
+            style="min-width: 100vw; width: 100vw;" alt="Damaged Kitchen">
         </div>
+
+        <div class="comp-handle" id="compHandle">
+          <i class="fas fa-chevron-left text-brand-dark mr-1"></i>
+          <i class="fas fa-chevron-right text-brand-dark ml-1"></i>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -519,10 +716,12 @@
         <div>
           <h2 class="text-4xl md:text-6xl font-serif">Services</h2>
           <p class="text-brand-cool mt-3 max-w-2xl">
-            End-to-end interiors, modular solutions, and renovation support—planned, designed, and executed with precision.
+            End-to-end interiors, modular solutions, and renovation support—planned, designed, and executed with
+            precision.
           </p>
         </div>
-        <a href="#contact" class="inline-flex items-center gap-3 border border-white/20 hover:border-brand-orange px-5 py-3 rounded-full text-xs uppercase tracking-widest transition-all">
+        <a href="#contact"
+          class="inline-flex items-center gap-3 border border-white/20 hover:border-brand-orange px-5 py-3 rounded-full text-xs uppercase tracking-widest transition-all">
           Book Free Consultation
           <span class="w-8 h-8 rounded-full bg-brand-orange grid place-items-center text-black">↗</span>
         </a>
@@ -537,9 +736,12 @@
               Where style meets storage—smart layouts, premium finishes, and high-utility zones for modern living.
             </p>
             <ul class="text-brand-gray text-sm space-y-2">
-              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Space planning + 3D concepts</li>
-              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Steel modular units</li>
-              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Premium hardware options</li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Space
+                planning + 3D concepts</li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Steel
+                modular units</li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Premium
+                hardware options</li>
             </ul>
           </div>
         </div>
@@ -552,9 +754,12 @@
               Create timeless memories—warm lighting, balanced textures, and elegant storage for everyday comfort.
             </p>
             <ul class="text-brand-gray text-sm space-y-2">
-              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> TV units + feature walls</li>
-              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Display + storage solutions</li>
-              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Lighting + false ceiling</li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> TV units +
+                feature walls</li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Display +
+                storage solutions</li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Lighting +
+                false ceiling</li>
             </ul>
           </div>
         </div>
@@ -567,24 +772,47 @@
               Indulge in comfort—custom wardrobes, clean bedside details, and a calm premium finish.
             </p>
             <ul class="text-brand-gray text-sm space-y-2">
-              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Wardrobes + loft storage</li>
-              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Space-smart layouts</li>
-              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Premium finish catalog</li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Wardrobes +
+                loft storage</li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Space-smart
+                layouts</li>
+              <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Premium
+                finish catalog</li>
             </ul>
           </div>
         </div>
       </div>
 
       <div class="mt-8 grid md:grid-cols-4 gap-4">
-        <div class="ink-card p-5"><div class="relative"><p class="text-white font-semibold">Wardrobe Solutions</p><p class="text-brand-cool text-sm mt-1">Sliding, hinged, loft, mirror & study integration.</p></div></div>
-        <div class="ink-card p-5"><div class="relative"><p class="text-white font-semibold">TV Unit Walls</p><p class="text-brand-cool text-sm mt-1">Modern panels, shelves, lighting & concealed wiring.</p></div></div>
-        <div class="ink-card p-5"><div class="relative"><p class="text-white font-semibold">False Ceilings</p><p class="text-brand-cool text-sm mt-1">Cove lighting, layered designs, acoustic options.</p></div></div>
-        <div class="ink-card p-5"><div class="relative"><p class="text-white font-semibold">Renovation Support</p><p class="text-brand-cool text-sm mt-1">Upgrade kitchens, storage, paint, lighting & more.</p></div></div>
+        <div class="ink-card p-5">
+          <div class="relative">
+            <p class="text-white font-semibold">Wardrobe Solutions</p>
+            <p class="text-brand-cool text-sm mt-1">Sliding, hinged, loft, mirror & study integration.</p>
+          </div>
+        </div>
+        <div class="ink-card p-5">
+          <div class="relative">
+            <p class="text-white font-semibold">TV Unit Walls</p>
+            <p class="text-brand-cool text-sm mt-1">Modern panels, shelves, lighting & concealed wiring.</p>
+          </div>
+        </div>
+        <div class="ink-card p-5">
+          <div class="relative">
+            <p class="text-white font-semibold">False Ceilings</p>
+            <p class="text-brand-cool text-sm mt-1">Cove lighting, layered designs, acoustic options.</p>
+          </div>
+        </div>
+        <div class="ink-card p-5">
+          <div class="relative">
+            <p class="text-white font-semibold">Renovation Support</p>
+            <p class="text-brand-cool text-sm mt-1">Upgrade kitchens, storage, paint, lighting & more.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="signature-scroll" class="py-24 bg-brand-dark overflow-hidden border-t border-white/10">
+  <!-- <section id="signature-scroll" class="py-24 bg-brand-dark overflow-hidden border-t border-white/10">
     <div class="px-6 mb-12 text-center">
       <h2 class="text-brand-orange uppercase tracking-widest text-sm mb-2">Our Signature Styles</h2>
       <h3 class="text-4xl font-serif text-white">Curated Collections</h3>
@@ -628,9 +856,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <section id="gallery-slider" class="py-28 bg-brand-dark border-t border-white/10 overflow-hidden">
+  <!-- <section id="gallery-slider" class="py-28 bg-brand-dark border-t border-white/10 overflow-hidden">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex flex-col md:flex-row items-end justify-between gap-6 mb-12">
         <div class="reveal-text">
@@ -709,9 +937,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <section id="projects" class="py-24 bg-brand-dark">
+  <!-- <section id="projects" class="py-24 bg-brand-dark">
     <div class="max-w-7xl mx-auto px-6 mb-12">
       <h2 class="text-brand-orange tracking-widest uppercase text-sm mb-2">Portfolio</h2>
       <h3 class="text-4xl font-serif text-white">Luxury in Every Detail</h3>
@@ -763,7 +991,7 @@
         View Gallery
       </a>
     </div>
-  </section>
+  </section> -->
 
 
   <section id="gallery" class="py-28 bg-brand-dark border-t border-white/10 overflow-hidden">
@@ -785,7 +1013,8 @@
     </div>
 
     <div class="relative soft-grid">
-      <div class="absolute inset-0 bg-gradient-to-b from-brand-dark via-transparent to-brand-dark pointer-events-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-brand-dark via-transparent to-brand-dark pointer-events-none">
+      </div>
 
       <div class="gallery-pin relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 md:px-6">
@@ -794,15 +1023,20 @@
               <div class="glass rounded-3xl p-7 md:p-8 reveal-left">
                 <h3 class="text-2xl md:text-3xl font-serif mb-3">Where spaces inspire</h3>
                 <p class="text-brand-cool text-sm md:text-base leading-relaxed mb-6">
-                  High-quality materials. Clean craftsmanship. Thoughtful layouts — designed to feel luxurious and effortless.
+                  High-quality materials. Clean craftsmanship. Thoughtful layouts — designed to feel luxurious and
+                  effortless.
                 </p>
                 <ul class="text-brand-gray text-sm space-y-3">
-                  <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Latest technologies</li>
-                  <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> High-utility designs</li>
-                  <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Premium finishes</li>
+                  <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Latest
+                    technologies</li>
+                  <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span>
+                    High-utility designs</li>
+                  <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-orange rounded-full"></span> Premium
+                    finishes</li>
                 </ul>
 
-                <a href="#contact" class="inline-flex mt-7 items-center gap-3 border border-white/20 hover:border-brand-orange px-5 py-3 rounded-full text-xs uppercase tracking-widest transition-all">
+                <a href="#contact"
+                  class="inline-flex mt-7 items-center gap-3 border border-white/20 hover:border-brand-orange px-5 py-3 rounded-full text-xs uppercase tracking-widest transition-all">
                   Book a Visit
                   <span class="w-8 h-8 rounded-full bg-brand-orange grid place-items-center text-black">↗</span>
                 </a>
@@ -811,7 +1045,9 @@
 
             <div class="md:col-span-8">
               <div class="gallery-hero gallery-tile h-[250px] md:h-[400px] reveal-right">
-                <img data-lightbox src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1800&auto=format&fit=crop" alt="">
+                <img data-lightbox
+                  src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1800&auto=format&fit=crop"
+                  alt="">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div>
                 <div class="absolute bottom-6 left-6">
                   <p class="text-brand-orange uppercase tracking-widest text-xs">Featured</p>
@@ -824,19 +1060,31 @@
 
           <div class="mt-12 md:mt-16 space-y-5 overflow-hidden">
             <div class="gallery-row gallery-row-1" id="galleryRow1">
-              <div class="gallery-tile w-[180px] md:w-[260px] h-[120px] md:h-[160px]"><img data-lightbox src="images/2058.jpg" alt=""></div>
-              <div class="gallery-tile w-[220px] md:w-[320px] h-[120px] md:h-[160px]"><img data-lightbox src="images/3d-rendering-loft-luxury-living-room-with-bookshelf.jpg" alt=""></div>
-              <div class="gallery-tile w-[180px] md:w-[260px] h-[120px] md:h-[160px]"><img data-lightbox src="images/kiche1.jpg" alt=""></div>
-              <div class="gallery-tile w-[220px] md:w-[320px] h-[120px] md:h-[160px]"><img data-lightbox src="images/3d-rendering-loft-luxury-living-room-with-shelf-near-dining-table.jpg" alt=""></div>
-              <div class="gallery-tile w-[180px] md:w-[260px] h-[120px] md:h-[160px]"><img data-lightbox src="images/beautiful-kitchen-interior-design.jpg" alt=""></div>
+              <div class="gallery-tile w-[180px] md:w-[260px] h-[120px] md:h-[160px]"><img data-lightbox
+                  src="images/2058.jpg" alt=""></div>
+              <div class="gallery-tile w-[220px] md:w-[320px] h-[120px] md:h-[160px]"><img data-lightbox
+                  src="images/3d-rendering-loft-luxury-living-room-with-bookshelf.jpg" alt=""></div>
+              <div class="gallery-tile w-[180px] md:w-[260px] h-[120px] md:h-[160px]"><img data-lightbox
+                  src="images/kiche1.jpg" alt=""></div>
+              <div class="gallery-tile w-[220px] md:w-[320px] h-[120px] md:h-[160px]"><img data-lightbox
+                  src="images/3d-rendering-loft-luxury-living-room-with-shelf-near-dining-table.jpg" alt=""></div>
+              <div class="gallery-tile w-[180px] md:w-[260px] h-[120px] md:h-[160px]"><img data-lightbox
+                  src="images/beautiful-kitchen-interior-design.jpg" alt=""></div>
             </div>
 
             <div class="gallery-row gallery-row-2" id="galleryRow2">
-              <div class="gallery-tile w-[220px] md:w-[320px] h-[120px] md:h-[160px]"><img data-lightbox src="images/classy-exquisite-girl-bedroom-interior-design.jpg" alt=""></div>
-              <div class="gallery-tile w-[180px] md:w-[260px] h-[120px] md:h-[160px]"><img data-lightbox src="images/beautiful-kitchen-interior-design.jpg" alt=""></div>
-              <div class="gallery-tile w-[220px] md:w-[320px] h-[120px] md:h-[160px]"><img data-lightbox src="images/kichen.jpg" alt=""></div>
-              <div class="gallery-tile w-[180px] md:w-[260px] h-[120px] md:h-[160px]"><img data-lightbox src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1400&auto=format&fit=crop" alt=""></div>
-              <div class="gallery-tile w-[220px] md:w-[320px] h-[120px] md:h-[160px]"><img data-lightbox src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1400&auto=format&fit=crop" alt=""></div>
+              <div class="gallery-tile w-[220px] md:w-[320px] h-[120px] md:h-[160px]"><img data-lightbox
+                  src="images/classy-exquisite-girl-bedroom-interior-design.jpg" alt=""></div>
+              <div class="gallery-tile w-[180px] md:w-[260px] h-[120px] md:h-[160px]"><img data-lightbox
+                  src="images/beautiful-kitchen-interior-design.jpg" alt=""></div>
+              <div class="gallery-tile w-[220px] md:w-[320px] h-[120px] md:h-[160px]"><img data-lightbox
+                  src="images/kichen.jpg" alt=""></div>
+              <div class="gallery-tile w-[180px] md:w-[260px] h-[120px] md:h-[160px]"><img data-lightbox
+                  src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1400&auto=format&fit=crop"
+                  alt=""></div>
+              <div class="gallery-tile w-[220px] md:w-[320px] h-[120px] md:h-[160px]"><img data-lightbox
+                  src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1400&auto=format&fit=crop"
+                  alt=""></div>
             </div>
           </div>
 
@@ -853,10 +1101,13 @@
 
       <div class="testimonial-slide active reveal-text">
         <p class="text-2xl md:text-3xl font-serif leading-relaxed mb-8">
-          “STLOX∞ transformed our entire home with modular planning. The quality and finishing exceeded our expectations.”
+          “STLOX∞ transformed our entire home with modular planning. The quality and finishing exceeded our
+          expectations.”
         </p>
         <div class="flex items-center justify-center gap-4">
-          <div class="w-10 h-10 rounded-full bg-brand-orange/20 border border-brand-orange/40 grid place-items-center font-bold">P</div>
+          <div
+            class="w-10 h-10 rounded-full bg-brand-orange/20 border border-brand-orange/40 grid place-items-center font-bold">
+            P</div>
           <div class="text-left">
             <h5 class="text-white font-bold">Priya Sharma</h5>
             <p class="text-brand-gray text-xs">Homeowner, Bangalore</p>
@@ -865,8 +1116,22 @@
       </div>
 
       <div class="mt-10 grid md:grid-cols-2 gap-4 text-left">
-        <div class="ink-card p-6"><div class="relative"><p class="text-brand-cool text-sm leading-relaxed">“Professional service from start to finish. Our bedroom interiors are elegant and functional.”</p><p class="mt-4 text-white font-semibold">Rajesh Kumar</p><p class="text-brand-gray text-xs">Business Owner</p></div></div>
-        <div class="ink-card p-6"><div class="relative"><p class="text-brand-cool text-sm leading-relaxed">“Punctual team and clean execution. Worth every penny—our living room looks premium.”</p><p class="mt-4 text-white font-semibold">Anita Reddy</p><p class="text-brand-gray text-xs">Interior Designer</p></div></div>
+        <div class="ink-card p-6">
+          <div class="relative">
+            <p class="text-brand-cool text-sm leading-relaxed">“Professional service from start to finish. Our bedroom
+              interiors are elegant and functional.”</p>
+            <p class="mt-4 text-white font-semibold">Rajesh Kumar</p>
+            <p class="text-brand-gray text-xs">Business Owner</p>
+          </div>
+        </div>
+        <div class="ink-card p-6">
+          <div class="relative">
+            <p class="text-brand-cool text-sm leading-relaxed">“Punctual team and clean execution. Worth every penny—our
+              living room looks premium.”</p>
+            <p class="mt-4 text-white font-semibold">Anita Reddy</p>
+            <p class="text-brand-gray text-xs">Interior Designer</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -874,68 +1139,82 @@
   <footer id="contact" class="bg-black pt-20 pb-10 border-t border-white/10 text-white">
     <div class="max-w-7xl mx-auto px-6">
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
-            <div class="col-span-1">
-                <a href="#home" class="flex items-center gap-3">
-        <img src="images/navlogo.png" alt="STLOX Logo" class="h-8 md:h-10 object-contain">
-      </a>
-                <div class="flex items-center gap-4">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-x-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
 
-            <div class="col-span-1">
-                <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
-                <a href="#home" class="footer-link">Home</a>
-                <a href="#about" class="footer-link">About Us</a>
-                <a href="#services" class="footer-link">Services</a>
-                <a href="#projects" class="footer-link">Projects</a>
-                <a href="#products" class="footer-link">Products</a>
-                <a href="#contact" class="footer-link">Contact Us</a>
-            </div>
+        <!-- Brand -->
+        <div class="col-span-1">
+          <img src="images/navlogo.png" alt="STLOX Logo" class="footer-logo mb-5 object-contain" />
 
-            <div class="col-span-1">
-                <h4 class="text-lg font-semibold mb-6">Our Services</h4>
-                <a href="#" class="footer-link">Modular Kitchens</a>
-                <a href="#" class="footer-link">Wardrobe Solutions</a>
-                <a href="#" class="footer-link">Living Room Interiors</a>
-                <a href="#" class="footer-link">Bedroom Interiors</a>
-                <a href="#" class="footer-link">TV Unit Walls</a>
-                <a href="#" class="footer-link">False Ceilings</a>
-            </div>
 
-            <div class="col-span-1">
-                <h4 class="text-lg font-semibold mb-6">Contact Us</h4>
+          <p class="text-brand-gray text-sm leading-relaxed mb-6">
+            At STLOX, we believe your space is more than just a place to live—it's a statement of who you are.
+            We transform ordinary rooms into extraordinary experiences that reflect your unique personality and
+            lifestyle.
+          </p>
 
-                <div class="flex items-center gap-3 mb-4">
-                    <i class="fas fa-phone-alt text-brand-orange text-sm"></i>
-                    <span class="text-brand-gray text-sm">+91 734 897 8581</span>
-                </div>
-
-                <div class="flex items-center gap-3 mb-4">
-                    <i class="fas fa-envelope text-brand-orange text-sm"></i>
-                    <span class="text-brand-gray text-sm">contact@stloxx.com</span>
-                </div>
-
-                <div class="flex items-start gap-3">
-                    <i class="fas fa-map-marker-alt text-brand-orange text-sm mt-1"></i>
-                    <span class="text-brand-gray text-sm">Sunkadakatte, Bangalore-91</span>
-                </div>
-            </div>
+          <div class="flex items-center gap-4">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+          </div>
         </div>
 
-        <div class="border-t border-white/10 pt-8 text-center text-brand-gray text-sm">
-            <p>&copy; 2025 STLOXX. All Rights Reserved | Powered by SRK ZenithVision</p>
+        <!-- Quick Links -->
+        <div class="col-span-1">
+          <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+          <a href="#home" class="footer-link">Home</a>
+          <a href="#about" class="footer-link">About Us</a>
+          <a href="#services" class="footer-link">Services</a>
+          <a href="#projects" class="footer-link">Projects</a>
+          <a href="#products" class="footer-link">Products</a>
+          <a href="#contact" class="footer-link">Contact Us</a>
         </div>
+
+        <!-- Services -->
+        <div class="col-span-1">
+          <h4 class="text-lg font-semibold mb-6">Our Services</h4>
+          <a href="#" class="footer-link">Modular Kitchens</a>
+          <a href="#" class="footer-link">Wardrobe Solutions</a>
+          <a href="#" class="footer-link">Living Room Interiors</a>
+          <a href="#" class="footer-link">Bedroom Interiors</a>
+          <a href="#" class="footer-link">TV Unit Walls</a>
+          <a href="#" class="footer-link">False Ceilings</a>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-span-1">
+          <h4 class="text-lg font-semibold mb-6">Contact Us</h4>
+
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fas fa-phone-alt text-brand-orange text-sm"></i>
+            <span class="text-brand-gray text-sm">+91 734 897 8581</span>
+          </div>
+
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fas fa-envelope text-brand-orange text-sm"></i>
+            <span class="text-brand-gray text-sm">contact@stloxx.com</span>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <i class="fas fa-map-marker-alt text-brand-orange text-sm mt-1"></i>
+            <span class="text-brand-gray text-sm">Sunkadakatte, Bangalore-91</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright -->
+      <div class="border-t border-white/10 pt-8 text-center text-brand-gray text-sm">
+        <p>&copy; 2025 STLOXX. All Rights Reserved | Powered by SRK ZenithVision</p>
+      </div>
 
     </div>
   </footer>
+
 
   <div id="lightbox" class="lb-overlay lb-hidden" aria-hidden="true">
     <div class="lb-shell" id="lbOverlay">
@@ -944,7 +1223,7 @@
           <div class="lb-chip" id="lbCount">1 / 1</div>
           <button class="lb-close" id="lbClose" aria-label="Close">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M6 6l12 12M18 6L6 18" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <path d="M6 6l12 12M18 6L6 18" stroke="white" stroke-width="2" stroke-linecap="round" />
             </svg>
           </button>
         </div>
@@ -953,13 +1232,13 @@
 
         <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18l-6-6 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15 18l-6-6 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </button>
 
         <button class="lb-btn lb-next" id="lbNext" aria-label="Next">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M9 6l6 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 6l6 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </button>
       </div>
@@ -982,44 +1261,44 @@
     const compOverlay = document.getElementById('compOverlay');
     const compHandle = document.getElementById('compHandle');
 
-    if(compSlider && compOverlay && compHandle) {
-        let isDragging = false;
+    if (compSlider && compOverlay && compHandle) {
+      let isDragging = false;
 
-        const updateSlider = (x) => {
-            const rect = compSlider.getBoundingClientRect();
-            // Calculate position within element
-            let posX = x - rect.left;
-            
-            // Constrain between 0 and width
-            if (posX < 0) posX = 0;
-            if (posX > rect.width) posX = rect.width;
-            
-            const percentage = (posX / rect.width) * 100;
-            
-            compOverlay.style.width = percentage + "%";
-            compHandle.style.left = percentage + "%";
-        };
+      const updateSlider = (x) => {
+        const rect = compSlider.getBoundingClientRect();
+        // Calculate position within element
+        let posX = x - rect.left;
 
-        // Mouse Events
-        compSlider.addEventListener('mousedown', () => isDragging = true);
-        window.addEventListener('mouseup', () => isDragging = false);
-        window.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            updateSlider(e.clientX);
-        });
+        // Constrain between 0 and width
+        if (posX < 0) posX = 0;
+        if (posX > rect.width) posX = rect.width;
 
-        // Touch Events (Mobile)
-        compSlider.addEventListener('touchstart', () => isDragging = true);
-        window.addEventListener('touchend', () => isDragging = false);
-        window.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            updateSlider(e.touches[0].clientX);
-        });
+        const percentage = (posX / rect.width) * 100;
 
-        // Click-to-move
-        compSlider.addEventListener('click', (e) => {
-            updateSlider(e.clientX);
-        });
+        compOverlay.style.width = percentage + "%";
+        compHandle.style.left = percentage + "%";
+      };
+
+      // Mouse Events
+      compSlider.addEventListener('mousedown', () => isDragging = true);
+      window.addEventListener('mouseup', () => isDragging = false);
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        updateSlider(e.clientX);
+      });
+
+      // Touch Events (Mobile)
+      compSlider.addEventListener('touchstart', () => isDragging = true);
+      window.addEventListener('touchend', () => isDragging = false);
+      window.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        updateSlider(e.touches[0].clientX);
+      });
+
+      // Click-to-move
+      compSlider.addEventListener('click', (e) => {
+        updateSlider(e.clientX);
+      });
     }
 
     // Helpers
@@ -1167,36 +1446,36 @@
       gsap.from(".reveal-right", { scrollTrigger: { trigger: "#gallery", start: "top 75%" }, x: 52, opacity: 0, duration: 1.0, ease: "power3.out" });
 
       if (heroTile) {
-          gsap.fromTo(heroTile, { y: 14, scale: 1.02 }, {
-            y: -14, scale: 1.00, ease: "none",
-            scrollTrigger: { trigger: ".gallery-hero", start: "top bottom", end: "bottom top", scrub: 1 }
-          });
+        gsap.fromTo(heroTile, { y: 14, scale: 1.02 }, {
+          y: -14, scale: 1.00, ease: "none",
+          scrollTrigger: { trigger: ".gallery-hero", start: "top bottom", end: "bottom top", scrub: 1 }
+        });
       }
 
       // Function to create infinite loop
       function createInfiniteLoop(row, direction) {
-          if (!row) return;
-          const items = Array.from(row.children);
-          // Clone items twice to ensure smooth seamless loop
-          items.forEach(item => row.appendChild(item.cloneNode(true)));
-          items.forEach(item => row.appendChild(item.cloneNode(true)));
+        if (!row) return;
+        const items = Array.from(row.children);
+        // Clone items twice to ensure smooth seamless loop
+        items.forEach(item => row.appendChild(item.cloneNode(true)));
+        items.forEach(item => row.appendChild(item.cloneNode(true)));
 
-          // Animate
-          const duration = 40; // Adjust speed here (higher = slower)
-          
-          if (direction === 'left') {
-              gsap.to(row, {
-                  xPercent: -33.33, // Move by 1/3 since we tripled content
-                  repeat: -1,
-                  duration: duration,
-                  ease: "linear"
-              });
-          } else {
-              gsap.fromTo(row, 
-                  { xPercent: -33.33 }, 
-                  { xPercent: 0, repeat: -1, duration: duration, ease: "linear" }
-              );
-          }
+        // Animate
+        const duration = 40; // Adjust speed here (higher = slower)
+
+        if (direction === 'left') {
+          gsap.to(row, {
+            xPercent: -33.33, // Move by 1/3 since we tripled content
+            repeat: -1,
+            duration: duration,
+            ease: "linear"
+          });
+        } else {
+          gsap.fromTo(row,
+            { xPercent: -33.33 },
+            { xPercent: 0, repeat: -1, duration: duration, ease: "linear" }
+          );
+        }
       }
 
       createInfiniteLoop(row1, 'left');
@@ -1317,4 +1596,5 @@
     });
   </script>
 </body>
+
 </html
