@@ -80,11 +80,10 @@
       box-shadow: 0 18px 60px rgba(0,0,0,0.35);
       border: 1px solid rgba(255,255,255,0.06);
       cursor: pointer;
-      flex-shrink: 0; /* Prevent shrinking in flex container */
+      flex-shrink: 0; 
     }
     .gallery-tile img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.03); }
     
-    /* Updated Gallery Row for Infinite Scroll */
     .gallery-row { display:flex; gap: 18px; width: max-content; padding: 6px 0; will-change: transform; }
     
     .soft-grid {
@@ -169,6 +168,56 @@
     }
     .slider-btn svg { width: 24px; height: 24px; stroke: white; }
     .slider-btn:hover svg { stroke: black; }
+
+    /* ✅ COMPARISON SLIDER STYLES */
+    .comparison-container {
+        position: relative;
+        width: 100%;
+        height: 600px;
+        overflow: hidden;
+        border-radius: 24px;
+        border: 1px solid rgba(255,255,255,0.1);
+        cursor: col-resize;
+    }
+    .comp-img-wrapper {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+    /* The "Old" Image (Top Layer) */
+    .comp-overlay {
+        position: absolute;
+        top: 0; left: 0;
+        width: 50%; /* Initial split */
+        height: 100%;
+        overflow: hidden;
+        z-index: 10;
+        border-right: 2px solid #ff6b35;
+        background-color: #0f0f0f;
+    }
+    .comp-overlay img {
+        position: absolute;
+        top: 0; left: 0;
+        height: 100%;
+        width: auto; /* Allow image to be wider than container */
+        max-width: none;
+        object-fit: cover;
+    }
+    /* The Handle */
+    .comp-handle {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: 48px; height: 48px;
+        background: white;
+        border-radius: 50%;
+        z-index: 20;
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        pointer-events: none; /* Let clicks pass through to container */
+    }
 
     /* Lightbox (modal) */
     .lb-hidden { display: none; }
@@ -282,7 +331,7 @@
       </div>
 
       <a href="#home" class="flex items-center gap-3">
-        <img src="https://via.placeholder.com/150x40/000000/ff6b35?text=YOUR+LOGO" alt="STLOX Logo" class="h-8 md:h-10 object-contain">
+        <img src="images/navlogo.png" alt="STLOX Logo" class="h-8 md:h-10 object-contain">
       </a>
 
       <div class="hidden md:flex items-center gap-7 text-sm uppercase tracking-widest font-sans text-white/90">
@@ -368,6 +417,99 @@
           </a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="products" class="py-24 bg-brand-panel">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="mb-12">
+            <h2 class="text-brand-orange tracking-widest uppercase text-sm mb-2">Our Products</h2>
+            <h3 class="text-4xl font-serif text-white">Premium Steel Solutions</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1400" 
+                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Kitchen">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                
+                <div class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                    <h4 class="text-xl font-bold text-white mb-2">Stainless Steel 304</h4>
+                    <p class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
+                        Rust-proof, hygienic, and designed for longevity. The ultimate modular solution for modern homes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?q=80&w=1400" 
+                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Alloy Kitchen">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                
+                <div class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                    <h4 class="text-xl font-bold text-white mb-2">Alloy Coated Steel</h4>
+                    <p class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
+                        Advanced coating technology offering superior durability and a sleek matte finish.
+                    </p>
+                </div>
+            </div>
+
+            <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?q=80&w=1400" 
+                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Wardrobe">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                
+                <div class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                    <h4 class="text-xl font-bold text-white mb-2">Steel Wardrobes</h4>
+                    <p class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
+                        Termite-proof storage with silent sliding mechanisms and customizable internal layouts.
+                    </p>
+                </div>
+            </div>
+
+            <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?q=80&w=1400" 
+                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Vanity">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                
+                <div class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                    <h4 class="text-xl font-bold text-white mb-2">Steel Vanities</h4>
+                    <p class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
+                        Water-resistant bathroom units that combine elegance with industrial strength.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-brand-dark border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="mb-12 text-center">
+            <h2 class="text-brand-orange tracking-widest uppercase text-sm mb-2">Renovation Magic</h2>
+            <h3 class="text-4xl font-serif text-white">Why Choose Steel Over Wood?</h3>
+            <p class="text-brand-cool mt-3">Drag the slider to see the difference.</p>
+        </div>
+
+        <div class="comparison-container" id="compSlider">
+            <div class="comp-img-wrapper" style="background-image: url('images/illustration-living-room-interior.jpg');">
+                <div class="absolute bottom-8 right-8 bg-black/70 px-4 py-2 rounded-full text-white text-sm font-bold border border-white/20">
+                    STLOX Transformation
+                </div>
+            </div>
+
+            <div class="comp-overlay" id="compOverlay">
+                <img src="https://img.freepik.com/fotos-premium/interior-casa_1048944-19759696.jpg" 
+                     id="compImageBefore"
+                     style="min-width: 100vw; width: 100vw;" 
+                     alt="Damaged Kitchen">
+                  </div>
+
+            <div class="comp-handle" id="compHandle">
+                <i class="fas fa-chevron-left text-brand-dark mr-1"></i>
+                <i class="fas fa-chevron-right text-brand-dark ml-1"></i>
+            </div>
+        </div>
     </div>
   </section>
 
@@ -569,7 +711,6 @@
     </div>
   </section>
 
-
   <section id="projects" class="py-24 bg-brand-dark">
     <div class="max-w-7xl mx-auto px-6 mb-12">
       <h2 class="text-brand-orange tracking-widest uppercase text-sm mb-2">Portfolio</h2>
@@ -735,10 +876,9 @@
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
             <div class="col-span-1">
-                <h2 class="text-3xl font-bold text-brand-orange mb-5">STLOX∞</h2>
-                <p class="text-brand-gray text-sm leading-relaxed mb-6">
-                    At STLOX, we believe your space is more than just a place to live—it's a statement of who you are. We transform ordinary rooms into extraordinary experiences that reflect your unique personality and lifestyle.
-                </p>
+                <a href="#home" class="flex items-center gap-3">
+        <img src="images/navlogo.png" alt="STLOX Logo" class="h-8 md:h-10 object-contain">
+      </a>
                 <div class="flex items-center gap-4">
                     <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
@@ -835,6 +975,51 @@
     if (mBtn && mMenu) {
       mBtn.addEventListener("click", () => mMenu.classList.toggle("hidden"));
       mMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mMenu.classList.add("hidden")));
+    }
+
+    // ✅ COMPARISON SLIDER SCRIPT
+    const compSlider = document.getElementById('compSlider');
+    const compOverlay = document.getElementById('compOverlay');
+    const compHandle = document.getElementById('compHandle');
+
+    if(compSlider && compOverlay && compHandle) {
+        let isDragging = false;
+
+        const updateSlider = (x) => {
+            const rect = compSlider.getBoundingClientRect();
+            // Calculate position within element
+            let posX = x - rect.left;
+            
+            // Constrain between 0 and width
+            if (posX < 0) posX = 0;
+            if (posX > rect.width) posX = rect.width;
+            
+            const percentage = (posX / rect.width) * 100;
+            
+            compOverlay.style.width = percentage + "%";
+            compHandle.style.left = percentage + "%";
+        };
+
+        // Mouse Events
+        compSlider.addEventListener('mousedown', () => isDragging = true);
+        window.addEventListener('mouseup', () => isDragging = false);
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            updateSlider(e.clientX);
+        });
+
+        // Touch Events (Mobile)
+        compSlider.addEventListener('touchstart', () => isDragging = true);
+        window.addEventListener('touchend', () => isDragging = false);
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            updateSlider(e.touches[0].clientX);
+        });
+
+        // Click-to-move
+        compSlider.addEventListener('click', (e) => {
+            updateSlider(e.clientX);
+        });
     }
 
     // Helpers
@@ -1132,4 +1317,4 @@
     });
   </script>
 </body>
-</html>
+</html
