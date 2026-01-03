@@ -496,14 +496,15 @@
 <body class="antialiased">
 
   <nav class="fixed w-full z-50 top-0 left-0 nav-barline bg-black/70 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto px-5 md:px-8 py-5 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-5 flex items-center justify-between relative">
+      
       <div class="hidden md:flex items-center gap-7 text-sm uppercase tracking-widest font-sans text-white/90">
         <a href="#home" class="nav-link">Home</a>
         <a href="#about" class="nav-link">About Us</a>
         <a href="#services" class="nav-link">Services</a>
       </div>
 
-      <a href="#home" class="flex items-center gap-3">
+      <a href="#home" class="flex items-center gap-3 relative z-50">
         <img src="images/navlogo.png" alt="STLOX Logo" class="h-8 md:h-10 object-contain">
       </a>
 
@@ -513,26 +514,25 @@
         <a href="#contact" class="nav-link">Contact Us</a>
       </div>
 
-      <div class="md:hidden">
+      <div class="md:hidden relative z-50">
         <button id="mBtn"
-          class="w-12 h-12 rounded-full border border-white/20 flex flex-col justify-center items-center gap-1.5 hover:border-brand-orange transition-colors group">
-          <span class="w-5 h-[2px] bg-white group-hover:bg-brand-orange transition-colors duration-300"></span>
-          <span class="w-5 h-[2px] bg-white group-hover:bg-brand-orange transition-colors duration-300"></span>
-          <span class="w-5 h-[2px] bg-white group-hover:bg-brand-orange transition-colors duration-300"></span>
+          class="w-12 h-12 rounded-full border border-white/20 flex flex-col justify-center items-center gap-1.5 hover:border-brand-orange transition-colors group relative overflow-hidden">
+          <span class="ham-line w-5 h-[2px] bg-white group-hover:bg-brand-orange transition-all duration-300"></span>
+          <span class="ham-line w-5 h-[2px] bg-white group-hover:bg-brand-orange transition-all duration-300"></span>
+          <span class="ham-line w-5 h-[2px] bg-white group-hover:bg-brand-orange transition-all duration-300"></span>
         </button>
       </div>
     </div>
 
-    <div id="mMenu" class="md:hidden hidden border-t border-white/10 bg-black/90 backdrop-blur-md">
-      <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-6 text-sm uppercase tracking-widest text-center">
-        <a class="nav-link py-2" href="#home">Home</a>
-        <a class="nav-link py-2" href="#about">About</a>
-        <a class="nav-link py-2" href="#services">Services</a>
-        <a class="nav-link py-2" href="#projects">Projects</a>
-        <a class="nav-link py-2" href="#products">Products</a>
-        <a class="nav-link py-2" href="#gallery-slider">Slider</a>
-        <a class="nav-link py-2" href="#gallery">Gallery</a>
-        <a class="nav-link py-2" href="#contact">Contact</a>
+    <div id="mMenu" class="md:hidden hidden fixed top-[89px] left-0 w-full h-[calc(100vh-89px)] bg-black/95 backdrop-blur-xl border-t border-white/10 z-40 overflow-hidden">
+      <div class="w-full h-full flex flex-col justify-start items-end pt-10 pr-8 gap-8">
+        <a class="m-link text-2xl font-serif text-white hover:text-brand-orange transition-colors opacity-0" href="#home">Home</a>
+        <a class="m-link text-2xl font-serif text-white hover:text-brand-orange transition-colors opacity-0" href="#about">About</a>
+        <a class="m-link text-2xl font-serif text-white hover:text-brand-orange transition-colors opacity-0" href="#services">Services</a>
+        <a class="m-link text-2xl font-serif text-white hover:text-brand-orange transition-colors opacity-0" href="#projects">Projects</a>
+        <a class="m-link text-2xl font-serif text-white hover:text-brand-orange transition-colors opacity-0" href="#products">Products</a>
+        <a class="m-link text-2xl font-serif text-white hover:text-brand-orange transition-colors opacity-0" href="#gallery">Gallery</a>
+        <a class="m-link text-2xl font-serif text-white hover:text-brand-orange transition-colors opacity-0" href="#contact">Contact</a>
       </div>
     </div>
   </nav>
@@ -552,7 +552,7 @@
       <div class="relative about-img-trigger reveal-wrap">
         <div class="absolute -top-4 -left-4 w-full h-full border border-brand-orange/30 z-0"></div>
         <img data-lightbox
-          src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1400&auto=format&fit=crop"
+          src="images/photo-futuristic-living-room-modern-interior-technology.jpg"
           class="reveal-img relative z-10 w-full h-[560px] object-cover grayscale hover:grayscale-0 transition-all duration-700"
           alt="STLOX Interiors" />
       </div>
@@ -598,88 +598,76 @@
     </div>
   </section>
 
-  <section id="products" class="py-24 bg-brand-panel">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="mb-12">
-        <h2 class="text-brand-orange tracking-widest uppercase text-sm mb-2">Our Products</h2>
-        <h3 class="text-4xl font-serif text-white">Premium Steel Solutions</h3>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
-          <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1400"
-            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            alt="Kitchen">
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
-          </div>
-
-          <div
-            class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-            <h4 class="text-xl font-bold text-white mb-2">Stainless Steel 304</h4>
-            <p
-              class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
-              Rust-proof, hygienic, and designed for longevity. The ultimate modular solution for modern homes.
-            </p>
-          </div>
-        </div>
-
-        <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
-          <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?q=80&w=1400"
-            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            alt="Alloy Kitchen">
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
-          </div>
-
-          <div
-            class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-            <h4 class="text-xl font-bold text-white mb-2">Alloy Coated Steel</h4>
-            <p
-              class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
-              Advanced coating technology offering superior durability and a sleek matte finish.
-            </p>
-          </div>
-        </div>
-
-        <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
-          <img src="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?q=80&w=1400"
-            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            alt="Wardrobe">
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
-          </div>
-
-          <div
-            class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-            <h4 class="text-xl font-bold text-white mb-2">Steel Wardrobes</h4>
-            <p
-              class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
-              Termite-proof storage with silent sliding mechanisms and customizable internal layouts.
-            </p>
-          </div>
-        </div>
-
-        <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
-          <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?q=80&w=1400"
-            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            alt="Vanity">
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
-          </div>
-
-          <div
-            class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-            <h4 class="text-xl font-bold text-white mb-2">Steel Vanities</h4>
-            <p
-              class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
-              Water-resistant bathroom units that combine elegance with industrial strength.
-            </p>
-          </div>
-        </div>
-      </div>
+<section id="products" class="py-24 bg-brand-panel">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-12">
+      <h2 class="text-brand-orange tracking-widest uppercase text-sm mb-2">Our Interiors</h2>
+      <h3 class="text-4xl font-serif text-white">Premium Steel Interior Solutions</h3>
     </div>
-  </section>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+      <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
+        <img src="images/living-room2.jpg"
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          alt="Living Room">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90"></div>
+
+        <div class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+          <h4 class="text-xl font-bold text-white mb-2">Living Room Interiors</h4>
+          <p class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+            Elegant steel TV units, display shelves, and modern storage designed for stylish living spaces.
+          </p>
+        </div>
+      </div>
+
+      <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
+        <img src="images/modern-gray-master-bedroom.jpg"
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          alt="Bedroom">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90"></div>
+
+        <div class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+          <h4 class="text-xl font-bold text-white mb-2">Bedroom Interiors</h4>
+          <p class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+            Steel wardrobes, beds, and side units offering strength, silence, and premium comfort.
+          </p>
+        </div>
+      </div>
+
+      <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
+        <img src="images/kiche1.jpg"
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          alt="Kitchen">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90"></div>
+
+        <div class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+          <h4 class="text-xl font-bold text-white mb-2">Modular Kitchen</h4>
+          <p class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+            Rust-proof stainless steel kitchens designed for hygiene, durability, and modern cooking.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
+        <img src="images/bedroom-with-bed-sofa-television.jpg"
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          alt="Stainless Steel Interiors">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90"></div>
+
+        <div class="absolute bottom-0 left-0 w-full p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+          <h4 class="text-xl font-bold text-white mb-2">Stainless Steel Interiors</h4>
+          <p class="text-brand-cool text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+            Complete home interiors crafted with premium stainless steel for a modern, long-lasting finish.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
   <section class="py-24 bg-brand-dark border-t border-white/10">
     <div class="max-w-7xl mx-auto px-6">
@@ -690,7 +678,7 @@
       </div>
 
       <div class="comparison-container" id="compSlider">
-        <div class="comp-img-wrapper" style="background-image: url('images/illustration-living-room-interior.jpg');">
+        <div class="comp-img-wrapper" style="background-image: url('images/modern-bedroom-with-interior-design-interior-mockups-design-cozy-bedding-plants-minimalist-design-neutral-colors-wall-art-luxury-interior-design-wall-art-mockups-office-interior-frame-design.jpg');">
           <div
             class="absolute bottom-8 right-8 bg-black/70 px-4 py-2 rounded-full text-white text-sm font-bold border border-white/20">
             STLOX Transformation
@@ -698,7 +686,7 @@
         </div>
 
         <div class="comp-overlay" id="compOverlay">
-          <img src="https://img.freepik.com/fotos-premium/interior-casa_1048944-19759696.jpg" id="compImageBefore"
+          <img src="images/Gemini_Generated_Image_m19796m19796m197.png" id="compImageBefore"
             style="min-width: 100vw; width: 100vw;" alt="Damaged Kitchen">
         </div>
 
@@ -812,188 +800,6 @@
     </div>
   </section>
 
-  <!-- <section id="signature-scroll" class="py-24 bg-brand-dark overflow-hidden border-t border-white/10">
-    <div class="px-6 mb-12 text-center">
-      <h2 class="text-brand-orange uppercase tracking-widest text-sm mb-2">Our Signature Styles</h2>
-      <h3 class="text-4xl font-serif text-white">Curated Collections</h3>
-      <p class="text-brand-cool max-w-2xl mx-auto mt-3">
-        Scroll through our style directions. Click any tile to view full image.
-      </p>
-    </div>
-
-    <div class="marquee-container w-full overflow-hidden">
-      <div class="marquee-wrapper flex gap-8 pl-6" id="marquee-content">
-        <div class="scroll-card relative w-[300px] md:w-[450px] aspect-[3/4] flex-shrink-0 grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer group">
-          <img data-lightbox src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1400&auto=format&fit=crop" class="w-full h-full object-cover" alt="">
-          <div class="absolute bottom-0 left-0 bg-black/80 p-6 w-full translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-            <h4 class="text-2xl font-serif text-white">Nordic Minimal</h4>
-            <p class="text-brand-gray text-sm">Clean lines & functional beauty.</p>
-          </div>
-        </div>
-
-        <div class="scroll-card relative w-[300px] md:w-[450px] aspect-[3/4] flex-shrink-0 grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer group">
-          <img data-lightbox src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=1400&auto=format&fit=crop" class="w-full h-full object-cover" alt="">
-          <div class="absolute bottom-0 left-0 bg-black/80 p-6 w-full translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-            <h4 class="text-2xl font-serif text-white">Industrial Chic</h4>
-            <p class="text-brand-gray text-sm">Raw materials & bold dark tones.</p>
-          </div>
-        </div>
-
-        <div class="scroll-card relative w-[300px] md:w-[450px] aspect-[3/4] flex-shrink-0 grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer group">
-          <img data-lightbox src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=1400&auto=format&fit=crop" class="w-full h-full object-cover" alt="">
-          <div class="absolute bottom-0 left-0 bg-black/80 p-6 w-full translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-            <h4 class="text-2xl font-serif text-white">Modern Luxury</h4>
-            <p class="text-brand-gray text-sm">Velvet textures & elevated lighting.</p>
-          </div>
-        </div>
-
-        <div class="scroll-card relative w-[300px] md:w-[450px] aspect-[3/4] flex-shrink-0 grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer group">
-          <img data-lightbox src="images/2058.jpg" class="w-full h-full object-cover" alt="">
-          <div class="absolute bottom-0 left-0 bg-black/80 p-6 w-full translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-            <h4 class="text-2xl font-serif text-white">Warm Contemporary</h4>
-            <p class="text-brand-gray text-sm">Organic textures & cozy balance.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- <section id="gallery-slider" class="py-28 bg-brand-dark border-t border-white/10 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row items-end justify-between gap-6 mb-12">
-        <div class="reveal-text">
-          <p class="text-brand-orange uppercase tracking-widest text-sm mb-2">Gallery Slider</p>
-          <h2 class="text-4xl md:text-6xl font-serif leading-tight">
-            Slide Through <span class="text-brand-gray italic">Highlights</span>
-          </h2>
-          <p class="text-brand-cool mt-3 max-w-2xl">
-            Use the arrows to browse our featured interior highlights.
-          </p>
-        </div>
-
-        <div class="glass rounded-2xl px-5 py-4 max-w-xl reveal-text">
-          <p class="text-brand-cool text-sm leading-relaxed">
-            Click arrows to slide. Click image to expand.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="relative soft-grid">
-      <div class="absolute inset-0 bg-gradient-to-b from-brand-dark via-transparent to-brand-dark pointer-events-none"></div>
-
-      <div class="hscroll-pin relative">
-        <div class="max-w-7xl mx-auto px-4 md:px-6">
-          <div class="glass rounded-3xl p-6 md:p-7 mb-8 reveal-text">
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-              <div>
-                <h3 class="text-2xl md:text-3xl font-serif">A premium slide gallery</h3>
-                <p class="text-brand-cool text-sm md:text-base mt-2">
-                  Smooth motion and premium overlays.
-                </p>
-              </div>
-              <a href="#gallery" class="inline-flex items-center gap-3 border border-white/20 hover:border-brand-orange px-5 py-3 rounded-full text-xs uppercase tracking-widest transition-all">
-                View Full Gallery
-                <span class="w-8 h-8 rounded-full bg-brand-orange grid place-items-center text-black">↗</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="hscroll-wrap">
-            <div class="hscroll-track" id="hscrollTrack">
-              <div class="hscroll-card">
-                <img data-lightbox src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1800&auto=format&fit=crop" alt="">
-                <div class="hscroll-meta">
-                  <p class="text-brand-orange uppercase tracking-widest text-xs">Featured</p>
-                  <h4 class="text-2xl md:text-3xl font-serif">Living + Dining</h4>
-                  <p class="text-brand-gray text-sm">Warm lighting • Balanced textures</p>
-                </div>
-              </div>
-
-              <div class="hscroll-card"><img data-lightbox src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=1600&auto=format&fit=crop" alt=""><div class="hscroll-meta"><p class="text-brand-orange uppercase tracking-widest text-xs">Interior</p><h4 class="text-2xl font-serif">Elegant Wardrobe</h4><p class="text-brand-gray text-sm">Premium finish • Clean lines</p></div></div>
-              <div class="hscroll-card"><img data-lightbox src="images/kiche1.jpg" alt=""><div class="hscroll-meta"><p class="text-brand-orange uppercase tracking-widest text-xs">Kitchen</p><h4 class="text-2xl font-serif">Modular Kitchen</h4><p class="text-brand-gray text-sm">High utility • Modern layout</p></div></div>
-              <div class="hscroll-card"><img data-lightbox src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600&auto=format&fit=crop" alt=""><div class="hscroll-meta"><p class="text-brand-orange uppercase tracking-widest text-xs">Bedroom</p><h4 class="text-2xl font-serif">Luxury Bedroom</h4><p class="text-brand-gray text-sm">Soft mood • Premium texture</p></div></div>
-              <div class="hscroll-card"><img data-lightbox src="images/3d-rendering-loft-luxury-living-room-with-shelf-near-dining-table.jpg" alt=""><div class="hscroll-meta"><p class="text-brand-orange uppercase tracking-widest text-xs">Living</p><h4 class="text-2xl font-serif">Feature Wall</h4><p class="text-brand-gray text-sm">Lighting • Storage • Display</p></div></div>
-              <div class="hscroll-card"><img data-lightbox src="images/3d-rendering-beautiful-comtemporary-luxury-bedroom-suite-hotel-with-tv (1).jpg" alt=""><div class="hscroll-meta"><p class="text-brand-orange uppercase tracking-widest text-xs">Suite</p><h4 class="text-2xl font-serif">Premium Suite</h4><p class="text-brand-gray text-sm">Cozy • Modern • Timeless</p></div></div>
-              <div class="hscroll-card"><img data-lightbox src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=1600&auto=format&fit=crop" alt=""><div class="hscroll-meta"><p class="text-brand-orange uppercase tracking-widest text-xs">Design</p><h4 class="text-2xl font-serif">Modern Workspace</h4><p class="text-brand-gray text-sm">Minimal • Efficient</p></div></div>
-              <div class="hscroll-card"><img data-lightbox src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1600&auto=format&fit=crop" alt=""><div class="hscroll-meta"><p class="text-brand-orange uppercase tracking-widest text-xs">Office</p><h4 class="text-2xl font-serif">Office Interiors</h4><p class="text-brand-gray text-sm">Professional • Clean finish</p></div></div>
-            </div>
-          </div>
-
-          <div class="flex gap-4 mt-8 justify-end">
-            <button id="slidePrev" class="slider-btn" aria-label="Previous Slide">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M19 12H5M12 19l-7-7 7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <button id="slideNext" class="slider-btn" aria-label="Next Slide">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
-
-          <div class="h-16"></div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- <section id="projects" class="py-24 bg-brand-dark">
-    <div class="max-w-7xl mx-auto px-6 mb-12">
-      <h2 class="text-brand-orange tracking-widest uppercase text-sm mb-2">Portfolio</h2>
-      <h3 class="text-4xl font-serif text-white">Luxury in Every Detail</h3>
-      <p class="text-brand-cool mt-3 max-w-2xl">
-        Explore our latest work—from modular kitchens to full-home transformations. Click any image to view full screen.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-4 md:px-12">
-      <div class="project-item relative h-[380px] md:h-[560px] overflow-hidden group reveal-wrap rounded-2xl border border-white/10 cursor-pointer">
-        <img data-lightbox src="images/modern-interior-kitchen-with-living-room.jpg" class="reveal-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" alt="">
-        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-500"></div>
-        <div class="absolute bottom-7 left-7">
-          <h4 class="text-3xl font-serif text-white">Modern Kitchen</h4>
-          <p class="text-brand-gray">Bangalore</p>
-        </div>
-      </div>
-
-      <div class="project-item relative h-[380px] md:h-[560px] overflow-hidden group md:mt-16 reveal-wrap rounded-2xl border border-white/10 cursor-pointer">
-        <img data-lightbox src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1600&auto=format&fit=crop" class="reveal-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" alt="">
-        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-500"></div>
-        <div class="absolute bottom-7 left-7">
-          <h4 class="text-3xl font-serif text-white">Office Interiors</h4>
-          <p class="text-brand-gray">Workspace</p>
-        </div>
-      </div>
-
-      <div class="project-item relative h-[380px] md:h-[560px] overflow-hidden group reveal-wrap rounded-2xl border border-white/10 cursor-pointer">
-        <img data-lightbox src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600&auto=format&fit=crop" class="reveal-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" alt="">
-        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-500"></div>
-        <div class="absolute bottom-7 left-7">
-          <h4 class="text-3xl font-serif text-white">Wardrobes</h4>
-          <p class="text-brand-gray">Storage</p>
-        </div>
-      </div>
-
-      <div class="project-item relative h-[380px] md:h-[560px] overflow-hidden group md:mt-16 reveal-wrap rounded-2xl border border-white/10 cursor-pointer">
-        <img data-lightbox src="images/luxurious-bedroom-interior-design-with-elegant-furnishings.jpg" class="reveal-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" alt="">
-        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-500"></div>
-        <div class="absolute bottom-7 left-7">
-          <h4 class="text-3xl font-serif text-white">Luxury Bedroom</h4>
-          <p class="text-brand-gray">Suite</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center mt-16">
-      <a href="#gallery" class="inline-block border border-brand-orange text-brand-orange px-10 py-4 uppercase tracking-widest hover:bg-brand-orange hover:text-white transition-all duration-300">
-        View Gallery
-      </a>
-    </div>
-  </section> -->
-
-
   <section id="gallery" class="py-28 bg-brand-dark border-t border-white/10 overflow-hidden">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex flex-col md:flex-row items-end justify-between gap-6 mb-14">
@@ -1061,29 +867,29 @@
           <div class="mt-12 md:mt-16 space-y-5 overflow-hidden">
             <div class="gallery-row gallery-row-1" id="galleryRow1">
               <div class="gallery-tile w-[180px] md:w-[260px] h-[120px] md:h-[160px]"><img data-lightbox
-                  src="images/2058.jpg" alt=""></div>
+                  src="images/wall-background-magic-transforming-your-living-room-with-stunning-designs.jpg" alt=""></div>
               <div class="gallery-tile w-[220px] md:w-[320px] h-[120px] md:h-[160px]"><img data-lightbox
-                  src="images/3d-rendering-loft-luxury-living-room-with-bookshelf.jpg" alt=""></div>
+                  src="images/kichen-modern.jpg" alt=""></div>
               <div class="gallery-tile w-[180px] md:w-[260px] h-[120px] md:h-[160px]"><img data-lightbox
-                  src="images/kiche1.jpg" alt=""></div>
+                  src="images/bedroom-decor-interior.jpg" alt=""></div>
               <div class="gallery-tile w-[220px] md:w-[320px] h-[120px] md:h-[160px]"><img data-lightbox
-                  src="images/3d-rendering-loft-luxury-living-room-with-shelf-near-dining-table.jpg" alt=""></div>
+                  src="images/modern-tv-unit-tv-stand-living-room-art-deco-style-glass-shelves-shelving.jpg" alt=""></div>
               <div class="gallery-tile w-[180px] md:w-[260px] h-[120px] md:h-[160px]"><img data-lightbox
-                  src="images/beautiful-kitchen-interior-design.jpg" alt=""></div>
+                  src="images/living-roominterior.jpg" alt=""></div>
             </div>
 
             <div class="gallery-row gallery-row-2" id="galleryRow2">
               <div class="gallery-tile w-[220px] md:w-[320px] h-[120px] md:h-[160px]"><img data-lightbox
-                  src="images/classy-exquisite-girl-bedroom-interior-design.jpg" alt=""></div>
+                  src="images/dining-set-modern-luxury-dining-room.jpg" alt=""></div>
               <div class="gallery-tile w-[180px] md:w-[260px] h-[120px] md:h-[160px]"><img data-lightbox
-                  src="images/beautiful-kitchen-interior-design.jpg" alt=""></div>
+                  src="images/minsk-belarus-october-2020-interior-modern-guestroom-studio-apartments-hotel-with-sofa-table-armchairs-led-light.jpg" alt=""></div>
               <div class="gallery-tile w-[220px] md:w-[320px] h-[120px] md:h-[160px]"><img data-lightbox
-                  src="images/kichen.jpg" alt=""></div>
+                  src="images/small-kitchen-space-with-modern-design.jpg" alt=""></div>
               <div class="gallery-tile w-[180px] md:w-[260px] h-[120px] md:h-[160px]"><img data-lightbox
-                  src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1400&auto=format&fit=crop"
+                  src="images/luxurious-bedroom-interior-design-with-elegant-furnishings.jpg"
                   alt=""></div>
               <div class="gallery-tile w-[220px] md:w-[320px] h-[120px] md:h-[160px]"><img data-lightbox
-                  src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1400&auto=format&fit=crop"
+                  src="images/contemporary-interior-grey-tones-with-sofa-striped-wallpaper-3d-rendering.jpg"
                   alt=""></div>
             </div>
           </div>
@@ -1141,7 +947,6 @@
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
 
-        <!-- Brand -->
         <div class="col-span-1">
           <img src="images/navlogo.png" alt="STLOX Logo" class="footer-logo mb-5 object-contain" />
 
@@ -1163,7 +968,6 @@
           </div>
         </div>
 
-        <!-- Quick Links -->
         <div class="col-span-1">
           <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
           <a href="#home" class="footer-link">Home</a>
@@ -1174,7 +978,6 @@
           <a href="#contact" class="footer-link">Contact Us</a>
         </div>
 
-        <!-- Services -->
         <div class="col-span-1">
           <h4 class="text-lg font-semibold mb-6">Our Services</h4>
           <a href="#" class="footer-link">Modular Kitchens</a>
@@ -1185,7 +988,6 @@
           <a href="#" class="footer-link">False Ceilings</a>
         </div>
 
-        <!-- Contact -->
         <div class="col-span-1">
           <h4 class="text-lg font-semibold mb-6">Contact Us</h4>
 
@@ -1207,9 +1009,8 @@
 
       </div>
 
-      <!-- Copyright -->
       <div class="border-t border-white/10 pt-8 text-center text-brand-gray text-sm">
-        <p>&copy; 2025 STLOXX. All Rights Reserved | Powered by SRK ZenithVision</p>
+        <p>&copy; 2025 STLOX. All Rights Reserved | Powered by SRK ZenithVision</p>
       </div>
 
     </div>
@@ -1248,12 +1049,61 @@
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    // Mobile menu
+    // ======================================
+    // 🍔 REVISED MOBILE MENU SCRIPT (GSAP)
+    // ======================================
     const mBtn = document.getElementById("mBtn");
     const mMenu = document.getElementById("mMenu");
+    const mLinks = document.querySelectorAll(".m-link");
+    const hamLines = document.querySelectorAll(".ham-line");
+    let isMenuOpen = false;
+
     if (mBtn && mMenu) {
-      mBtn.addEventListener("click", () => mMenu.classList.toggle("hidden"));
-      mMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mMenu.classList.add("hidden")));
+      mBtn.addEventListener("click", () => {
+        isMenuOpen = !isMenuOpen;
+
+        if (isMenuOpen) {
+          // Open Menu
+          mMenu.classList.remove("hidden");
+          
+          // Animate Hamburger into X
+          gsap.to(hamLines[1], { opacity: 0, duration: 0.2 });
+          gsap.to(hamLines[0], { rotate: 45, y: 8, duration: 0.3 });
+          gsap.to(hamLines[2], { rotate: -45, y: -8, duration: 0.3 });
+
+          // Animate Menu Links (Slide in one by one from Right)
+          gsap.fromTo(mLinks, 
+            { x: 100, opacity: 0 }, 
+            { x: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: "power3.out", delay: 0.1 }
+          );
+
+        } else {
+          // Close Menu
+          // Animate Hamburger back to Lines
+          gsap.to(hamLines[1], { opacity: 1, duration: 0.2 });
+          gsap.to(hamLines[0], { rotate: 0, y: 0, duration: 0.3 });
+          gsap.to(hamLines[2], { rotate: 0, y: 0, duration: 0.3 });
+
+          // Fade out links
+          gsap.to(mLinks, { x: 50, opacity: 0, duration: 0.3 });
+          
+          // Hide menu container after animation
+          setTimeout(() => {
+            mMenu.classList.add("hidden");
+          }, 300);
+        }
+      });
+
+      // Close menu when clicking a link
+      mLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          isMenuOpen = false;
+          gsap.to(hamLines[1], { opacity: 1, duration: 0.2 });
+          gsap.to(hamLines[0], { rotate: 0, y: 0, duration: 0.3 });
+          gsap.to(hamLines[2], { rotate: 0, y: 0, duration: 0.3 });
+          mMenu.classList.add("hidden");
+        });
+      });
     }
 
     // ✅ COMPARISON SLIDER SCRIPT
@@ -1597,4 +1447,4 @@
   </script>
 </body>
 
-</html
+</html>
